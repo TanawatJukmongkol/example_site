@@ -1,0 +1,162 @@
+@font-face {
+	font-family: italic-unisans-caps;
+	src: url("../assets/italic-unisans-caps.otf");
+}
+
+body, html {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	font-family: "italic-unisans-caps";
+	overflow: hidden;
+}
+canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1000;
+}
+
+#loading {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: black;
+	color: #aaa;
+	z-index: 10000;
+}
+
+#rewish {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	border: none;
+	background: transparent;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	transform: translate(0, 0);
+	transition: transform .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+#rewish:hover {
+	transform: translate(0, -2.5px);
+	cursor: pointer;
+}
+#rewish:active {
+	animation: rolling .2s;
+}
+@keyframes rolling {
+	0% {
+		transform: rotate(0);
+	}
+	25% {
+		transform: rotate(-10deg);
+	}
+	75% {
+		transform: rotate(10deg);
+	}
+	100% {
+		transform: rotate(0);
+	}
+}
+
+.center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	transform: translate(-50%, -50%);
+}
+.container {
+	background: #18191c;
+	padding: 1.75px 2em;
+	border: solid 4px #161616; 
+	border-radius: 7px;
+	width: 230px;
+	min-height: 417px;
+	overflow: hidden;
+	box-shadow: 8px 10px #00000036;
+	transform: scale(1);
+	transition:
+		transform .7s cubic-bezier(0.075, 0.82, 0.165, 1),
+		box-shadow .7s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.container *::selection {
+	background: #ffaaaa;
+	color: #fff4f8;
+}
+.container:hover {
+	box-shadow: 16px 24px #00000036;
+	transform: scale(1.1) rotate(-5deg);
+}
+.container::before {
+	position: absolute;
+	content: "";
+	top: -50px;
+	width: 150%;
+	height: 100%;
+	background: #fae8c4;
+	transform: translate(-50%, -50%) rotate(-5deg);
+	transition:
+		top .5s cubic-bezier(0.075, 0.82, 0.165, 1),
+		transform .7s cubic-bezier(0.075, 0.82, 0.165, 1);
+	z-index: -1000;
+}
+.container:hover::before {
+	top: 0;
+	transform: translate(-50%, -50%) rotate(-10deg);
+}
+.container * {
+	color: #ffffff;
+	text-shadow: -1.5px 1.5px 0 #000,
+				1.5px 1.5px 0 #000,
+				1.5px -1.5px 0 #000,
+				-1.5px -1.5px 0 #000;
+}
+.pfp {
+	position: relative;
+	width: 150px;
+	height: 150px;
+	margin: 0;
+	background: #18191c;
+	border-radius: 50%;
+	transform: translate(-50%, 0);
+}
+.pfp::before {
+	content: "";
+	background: url("../assets/Nuko.webp");
+	background-position: center; 
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 90%;
+	height: 90%;
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
+}
+.indicator {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	content: "";
+	width: 38px;
+	height: 38px;
+	background: #18191c;
+	border-radius: 50%;
+}
+.indicator::after {
+	content: "";
+	position: absolute;
+	top:50%;
+	left:50%;
+	width: 25px;
+	height: 25px;
+	background: #00b15b;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+}
